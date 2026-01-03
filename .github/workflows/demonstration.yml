@@ -1,33 +1,51 @@
 name: Testing GitHub Workflows
 
-on: 
+# Déclenchement uniquement sur la branche LAB
+on:
   push:
     branches:
       - LAB
+
+# Empêcher plusieurs exécutions en même temps sur la même branche
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - name: Etape 1-Initialisation
-        run: echo "'✅ Initialisation'"
+      # Étape 1 : Initialisation
+      - name: 🔧 Initialisation
+        run: echo "1️⃣ Initialisation"
 
-      - name: Etape 2-Récupération du code
-        run: echo "'✅Récupération du code'"
+      # Étape 2 : Récupération du code
+      - name: 📥 Récupération du code
+        run: echo "2️⃣ Récupération du code"
 
-      - name: Etape 3-Build
-        run: echo "'✅Build'"
+      # Étape 3 : Build
+      - name: 🏗️ Build
+        run: echo "3️⃣ Build"
 
-      - name: Etape 4-Tests
-        run: echo "'✅ Build terminé avec succès'"
+      # Étape 4 : Build OK
+      - name: ✅ Build terminé
+        if: success()
+        run: echo "✅ Build terminé avec succès"
 
-      - name: Etape 5-Packaging
-        run: echo "'✅Tests en cours"
+      # Étape 5 : Tests
+      - name: 🧪 Tests
+        if: success()
+        run: echo "4️⃣ Tests en cours"
 
-      - name: Etape 6-Fin du pipeline
-        run: echo "'✅Pipeline terminé'"
+      # Étape 6 : Packaging
+      - name: 📦 Packaging
+        if: success()
+        run: echo "5️⃣ Packaging"
 
-      - name: Etape 7-Complete Job
-        run: echo "'Complete Job'"
-        
-     
+      # Étape 7 : Fin du pipeline
+      - name: 🎉 Pipeline terminé
+        run: echo "6️⃣ Pipeline exécuté avec succès ✅"
+
+      # Étape finale : afficher le nom du runner
+      - name: 🖥️ Runner info
+        run: echo "Hostname: $HOSTNAME"
