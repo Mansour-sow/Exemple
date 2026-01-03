@@ -27,5 +27,4 @@ jobs:
       - name: Etape 6-Fin du pipeline
         run: echo "'✅Pipeline terminé'"
         
-      - name: Complete Job
-        run: echo "'✅Com  plete Job'"
+     
