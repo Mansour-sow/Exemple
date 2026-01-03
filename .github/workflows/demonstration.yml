@@ -1,28 +1,31 @@
 name: Testing GitHub Workflows
 
-on: push
+on: 
+  push:
+    branches:
+      - LAB
 
 jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - name: Initialisation
+      - name: Etape 1-Initialisation
         run: echo "'✅ Initialisation'"
 
-      - name: Récupération du code
+      - name: Etape 2-Récupération du code
         run: echo "'✅Récupération du code'"
 
-      - name: Build
+      - name: Etape 3-Build
         run: echo "'✅Build'"
 
-      - name: Tests
+      - name: Etape 4-Tests
         run: echo "'✅ Build terminé avec succès'"
 
-      - name: Packaging
+      - name: Etape 5-Packaging
         run: echo "'✅Tests en cours"
 
-      - name: Fin du pipeline
+      - name: Etape 6-Fin du pipeline
         run: echo "'✅Pipeline terminé'"
-
         
-      - run: echo $HOSTNAME
+      - name: Complete Job
+        run: echo "'✅Com  plete Job'"
