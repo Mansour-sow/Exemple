@@ -15,10 +15,10 @@ jobs:
       - name: Build
         run: echo "'✅Build'"
 
-      - name: Build OK
+      - name: Tests
         run: echo "'✅ Build terminé avec succès'"
 
-      - name: Tests
+      - name: Packaging
         run: echo "'✅Tests en cours"
 
       - name: Fin du pipeline
