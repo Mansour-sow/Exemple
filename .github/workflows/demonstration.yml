@@ -1,0 +1,28 @@
+name: Testing GitHub Workflows
+
+on: push
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initialisation
+        run: echo "'✅ Initialisation'"
+
+      - name: Récupération du code
+        run: echo "'✅Récupération du code'"
+
+      - name: Build
+        run: echo "'✅Build'"
+
+      - name: Build OK
+        run: echo "'✅ Build terminé avec succès'"
+
+      - name: Tests
+        run: echo "'✅Tests en cours"
+
+      - name: Fin du pipeline
+        run: echo "'✅Pipeline terminé'"
+
+        
+      - run: echo $HOSTNAME
