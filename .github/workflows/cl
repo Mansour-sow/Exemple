@@ -2,7 +2,7 @@ name: CI workflows
 env:
   IMAGE_NAME: testcicd
   IMAGE_TAG: 1.1.0
-  DOCKER_HUB_REGISTRY: docker.io/hadjimansour
+  DOCKER_HUB_REGISTRY: hadjimansour
 
 on:
   push:
@@ -29,12 +29,12 @@ jobs:
 
       - name: Build de l'image Docker
         # run: docker build -t $DOCKER_HUB_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
-        run: docker build -t khadijamba/testcicd:1.1.0 .
+        run: docker build -t hadjimansour/testcicd:1.1.0 .
 
       - name: Test de l'image Docker
         # run: docker image ls $DOCKER_HUB_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
-        run: docker image ls khadijamba/testcicd:1.1.0
+        run: docker image ls hadjimansour/testcicd:1.1.0
        
 
       - name: Push image Docker
-        run: docker push khadijamba/testcicd:1.1.0 
+        run: docker push hadjimansour/testcicd:1.1.0 
